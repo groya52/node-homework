@@ -1,0 +1,30 @@
+{{!-- файл шаблона --}}
+{{!-- параметры - в двойных фигурных скобках --}}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>cnews.ru</title>
+</head>
+
+<body>
+    <div class="entry">
+        <h1>{{title}}</h1>
+        {{#if error}}
+        <h2>Ошибка! {{error}}</h2>
+        {{/if}}
+        <div class="body">
+            <ol class="news_list">
+                {{#each news}}
+                <li>
+                    <a href="{{this.url}}"" target=" _blank"><b>{{this.title}}</b></a>
+                    <i>
+                        <blockquote>{{this.date}}: {{this.text}}</blockquote>
+                    </i>
+                </li>
+                {{/each}}
+            </ol>
+        </div>
+    </div>
+</body>
+</html>

@@ -5,7 +5,6 @@ const cheerio = require('cheerio');
 const url = "http://www.cnews.ru/news/";
 
 function getNews(res) {
-
     request(url, (err, res1, html) => {
         let body = '';
 
@@ -23,7 +22,6 @@ function getNews(res) {
             throw err;
         }
     });
-
 };
 
 function rendering(res, body) {
@@ -33,7 +31,7 @@ function rendering(res, body) {
 }
 
 http.createServer((req, res) => {
-    let body = getNews(res);
+    getNews(res);
 }).listen(8888);
 
 console.log('Server has started.');
