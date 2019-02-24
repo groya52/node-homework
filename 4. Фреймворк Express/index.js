@@ -16,7 +16,10 @@ app.use('/news', bodyParser.urlencoded({extended: true})); //urlencoded() - пе
 const consolidate = require('consolidate');
 app.engine('hbs', consolidate.handlebars); //выбираем функцию шаблонизации
 app.set('view engine', 'hbs'); //расширение шаблона
-app.set('views', `${__dirname}/views`); //путь к шаблону
+
+// удобство указания путей
+const path = require('path');
+app.set('views', path.join(__dirname, 'views')); //путь к шаблону
 
 // использование куков
 const cookieParser = require('cookie-parser');
